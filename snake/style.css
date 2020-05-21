@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.main{
+    display: flex;
+    margin: 10px 20px;
+}
+
+.scores{
+    padding: 0 20px;
+}
+
+.score{
+    color:red;
+}
+
+.score-title{
+    font-size: 24px;
+}
+
+.score-value{
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#best{
+    font-size: 26px;
+    color: yellow;
+    font-weight: 900;
+}

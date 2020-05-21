@@ -1,0 +1,174 @@
+body{
+    margin:0;
+    -webkit-font-smoothing:antialiased;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Main */
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* -----Left ----*/
+
+.left_side{
+    grid-area: left;
+    background-color: blue;
+    height: 87vh;
+    width:50%;
+    background:rgb(56, 165, 255) url('twitter_icon.svg') no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_inner{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:0 15px;
+}
+
+.lcolumn{
+    display: flex;
+    align-items: center;
+}
+
+.ltext{
+    display: inline-block;
+    font-size: 21px;
+    font-weight: bold;
+    color:white;
+    margin-left:15px;
+}
+
+.icons{
+    display: inline-block;
+    width:30px;
+    height: 30px;
+    fill:white;
+}
+
+
+
+/* ----Right ----*/
+
+.right_side{
+    grid-area: right;
+    background-color:white;
+    height: 87vh;
+    padding:15px;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_box{
+    width:380px;
+}
+
+.text1{
+    font-size:33px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.text2{
+    font-weight: bold;
+    font-size:17px;
+    letter-spacing:0;
+    margin-top: 60px;
+    margin-bottom: 15px;
+}
+
+.btn1{
+    background-color:rgb(48, 143, 221);
+    margin-bottom: 15px;
+    padding:0 15px;
+    border: 1px solid rgb(48, 143, 221);
+    border-radius: 25px;
+    height: 37px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1{
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn2{
+    background-color:white;
+    margin-bottom: 15px;
+    padding:0 15px;
+    border: 1px solid rgb(48, 143, 221);
+    border-radius: 25px;
+    height: 37px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button2{
+    color:rgb(48, 143, 221);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn1:hover{
+    background-color: rgb(31, 123, 199);
+    cursor: pointer;
+}
+
+.btn2:hover{
+    background-color: rgb(199, 237, 252);
+    cursor: pointer;
+}
+
+/* -----Footer---- */
+
+.footer{
+    background-color: white;
+    height: 13vh;
+    width:100%
+}
+
+.footer_inner{
+    padding:15px 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.links{
+    display:inline-block;
+    padding-right: 15px;
+    margin:5px 0;
+    text-decoration: none;
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.61);
+    font-weight: 100;
+}
+
+.links:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
