@@ -6,6 +6,8 @@ let leftBtnMore = document.getElementById('left_btn_more');
 let rightBtnMore = document.getElementById('right_btn_more');
 let leftMore = document.getElementById('left_more');
 let rightMore = document.getElementById('right_more');
+let rightMoreOptions = document.querySelectorAll('.right .more_option');
+let leftMoreOptions = document.querySelectorAll('.left .more_option');
 
 const countingSystem = {
   decimal:10,
@@ -38,11 +40,11 @@ window.onclick = (event)=>{
 }
 
 leftSelectItems.forEach((item)=>{
-    item.onclick = selectLeft;
+    item.onclick = select.bind(this, leftSelectItems, leftMoreOptions);
 })
 
 rightSelectItems.forEach((item)=>{
-    item.onclick = selectRight;
+    item.onclick = select.bind(this, rightSelectItems, rightMoreOptions);
 })
 
 givenInput.oninput = (event)=>{
@@ -93,7 +95,7 @@ function isValidInput(input){
     return check.length===input.length;
 }
 
-function selectLeft(event){
+function a(event){
     leftSelectItems.forEach(item=>item.classList.remove('selected'));
     event.target.classList.add('selected');
     inputCountingSystem = parseInt(event.target.value);
@@ -105,6 +107,40 @@ function selectRight(event){
     rightSelectItems.forEach(item=>item.classList.remove('selected'));
     event.target.classList.add('selected');
     resultCountingSystem = parseInt(event.target.value);
+    if(givenInput.value) resultInput.value = convert(givenInput.value);
+    givenInput.focus();
+}
+
+
+leftMoreOptions.forEach(item=>{
+    item.onclick = select.bind(this, leftSelectItems, leftMoreOptions);
+});
+
+rightMoreOptions.forEach(item=>{
+    item.onclick = select.bind(this, rightSelectItems, rightMoreOptions);
+})
+
+function select(selecItems, moreOptions, event){
+    const find = selecItems.find(item=>(item.value===event.target.value && window.getComputedStyle(item).display==='block'));
+
+    if(!find){
+        selecItems[0].innerHTML = event.target.innerHTML;
+        selecItems[0].value = event.target.value;
+    }
+    
+    
+    selecItems.forEach(item=>{
+        item.value===event.target.value? item.classList.add('selected'): item.classList.remove('selected')
+    });
+
+    moreOptions.forEach(item=>{
+        item.value===event.target.value? item.classList.add('selected'): item.classList.remove('selected');
+    })
+
+    selecItems===leftSelectItems? inputCountingSystem = parseInt(event.target.value)
+    :
+    resultCountingSystem = parseInt(event.target.value);
+
     if(givenInput.value) resultInput.value = convert(givenInput.value);
     givenInput.focus();
 }
