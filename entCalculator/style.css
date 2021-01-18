@@ -19,8 +19,9 @@ body{
     font-size: 1.1rem;
     letter-spacing: 2px;
     transition: outline-color linear .2s;
-    width: 75px;
+    width: 80px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .selectedAnswers:focus, .trueAnswers{

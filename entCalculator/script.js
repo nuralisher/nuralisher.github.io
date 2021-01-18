@@ -67,9 +67,10 @@ window.onload = ()=>{
 
 
     function calc(trueAnswersInput, selectedAnswersInput){
-        const trueAnswers = trueAnswersInput.value.trim();
-        const selectedAnswers = selectedAnswersInput.value.trim();
+        const trueAnswers = trueAnswersInput.value.trim().toUpperCase();
+        const selectedAnswers = selectedAnswersInput.value.trim().toUpperCase();
         
+
         if(!trueAnswers || !selectedAnswers){
             return 0;
         }
