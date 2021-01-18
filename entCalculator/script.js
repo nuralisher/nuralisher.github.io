@@ -35,7 +35,7 @@ window.onload = ()=>{
             let stqinput = document.createElement('input');
             stqinput.className = `selectedAnswers selectedAnswers${i}`;
             stqinput.placeholder = '???';
-            stqinput.maxLength =3;
+            // stqinput.maxLength =3;
             e.appendChild(stqinput);
             i++;
         })
@@ -157,7 +157,7 @@ window.onload = ()=>{
                 let answer = document.createElement('input');
                 answer.className = `selectedAnswers selectedAnswers${(students.length).toString()}`;
                 answer.placeholder = '???';
-                answer.maxLength =3;
+                // answer.maxLength =3;
                 block.appendChild(answer);
             }
     
