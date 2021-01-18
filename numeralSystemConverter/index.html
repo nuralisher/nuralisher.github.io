@@ -75,6 +75,144 @@
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>
+        <!-- <div>
+            <canvas id="canvas"  width="1200" height="600"></canvas>
+        </div> -->
+        <div class="blocks">
+            <div class="block block1">block1</div>
+            <!-- <div class="block block2">block2</div>
+            <div class="block block3">block3</div>
+            <button>asfd</button>
+            <button>fs</button> -->
+        </div>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            
+            // Pixel Madness
+            // let canvas = document.getElementById('canvas');
+            // let ctx = canvas.getContext('2d');
+            // let inp = [
+            //     '0x3+1x1+0x1+0x1+0x7+1x2+0x15+1x1+0x8+1x1+0x8+1x1+0x1+1x1+0x1+1x1+0x1+1x1+0x1+1x1+0x3+1x1+0x1+1x1+0x3+1x1+0x1+1x4+0x2+1x1+0x25',
+            //     '0x2+1x1+0x4+1x1+0x4+1x3+0x1+1x2+0x2+1x8+0x11+1x4+0x1+1x3+0x6+1x2+0x4+1x1+0x4+1x2+0x7+1x4+0x4+1x2+0x7+1x2+0x3+1x2+0x3',
+            //     '0x3+1x1+0x2+1x1+0x2+1x1+0x11+1x2+0x2+1x3+0x7+1x1+0x4+1x2+0x2+1x2+0x7+1x1+0x6+1x1+0x2+1x1+0x4+1x3+0x1+1x1+0x4+1x1+0x2+1x1+0x2+1x1+0x3+1x1+0x2+1x3+0x2+1x2+0x3',
+            //     '1x1+0x2+1x1+0x4+1x1+0x2+1x1+0x1+1x1+0x2+1x1+0x2+1x1+0x1+1x2+0x2+1x2+0x1+1x2+0x3+1x1+0x3+1x1+0x2+1x2+0x1+1x3+0x3+1x1+0x2+1x1+0x4+1x2+0x1+1x1+0x4+1x1+0x3+1x2+0x12+1x2+0x1+1x1+0x3+1x7+0x3',
+            //     '0x3+1x1+0x7+1x1+0x1+1x1+0x4+1x1+0x2+1x2+0x2+1x2+0x4+1x1+0x2+1x1+0x1+1x2+0x1+1x8+0x1+1x1+0x4+1x1+0x5+1x1+0x3+1x2+0x2+1x1+0x1+1x2+0x2+1x1+0x3+1x2+0x9+1x1+0x1+1x2+0x2+1x3+0x2+1x1',
+            //     '0x7+1x1+0x4+1x1+0x4+1x1+0x1+1x1+0x1+1x7+0x3+1x1+0x1+1x2+0x3+1x1+0x1+1x6+0x1+1x1+0x3+1x1+0x2+1x1+0x14+1x2+0x8+1x1+0x10+1x2+0x3+1x2+0x1+1x1+0x1',
+            //     '0x6+1x5+0x4+1x1+0x7+1x1+0x2+1x1+0x3+1x2+0x4+1x1+0x8+1x1+0x3+1x2+0x1+1x2+0x3+1x1+0x8+1x1+0x2+1x2+0x1+1x1+0x3+1x7+0x5+1x2+0x2+1x1+0x2+1x2+0x3',
+            //     '0x1+1x1+0x2+1x1+0x1+1x2+0x5+1x1+0x6+1x2+0x3+1x1+0x2+1x1+0x1+1x2+0x20+1x8+0x1+1x1+0x1+1x1+0x4+1x2+0x3+1x1+0x2+1x2+0x3+1x2+0x7+1x2+0x3+1x2+0x4',
+            //     '0x2+1x1+0x3+1x5+0x5+1x2+0x7+1x1+0x4+1x2+0x2+1x1+0x2+1x2+0x1+1x1+0x3+1x1+0x6+1x2+0x2+1x2+0x3+1x2+0x2+1x3+0x1+1x1+0x6+1x3+0x3+1x5+0x3+1x1+0x4+1x1+0x5',
+            //     '0x4+1x2+0x3+1x2+0x3+1x1+0x5+1x2+0x2+1x1+0x1+1x1+0x1+1x1+0x1+1x2+0x9+1x1+0x3+1x1+0x2+1x1+0x1+1x1+0x2+1x1+0x1+1x2+0x2+1x1+0x2+1x1+0x1+1x1+0x4+1x3+0x1+1x1+0x2+1x2+0x3+1x2+0x3+1x1+0x5+1x1+0x4+1x1+0x2',
+            //     '0x6+1x5+0x4+1x1+0x1+1x1+0x2+1x2+0x6+1x1+0x1+1x7+0x4+1x3+0x3+1x1+0x4+1x1+0x2+1x2+0x4+1x1+0x6+1x1+0x6+1x8+0x3+1x1+0x5+1x1+0x7',
+            //     '0x2+1x1+0x3+1x6+0x4+1x1+0x1+1x3+0x4+1x1+0x2+1x2+0x4+1x1+0x5+1x1+0x2+1x1+0x3+1x2+0x3+1x1+0x2+1x3+0x1+1x1+0x2+1x2+0x3+1x3+0x2+1x3+0x9+1x1+0x4+1x2+0x7+1x2',
+            // ]
+            // let size = 10;
+            // ctx.fillStyle = 'black';
+            // function splitByPlus(input){
+            //     return input.split('+');
+            // }
+
+            // function getNumber(input){
+            //     const from = input.indexOf('x')+1;
+            //     return parseInt(input.substr(from,input.length));
+            // }
+
+            // function getColor(input){
+            //     if(input[0]==='0') 
+            //         return 'white'
+            //     if(input[0]==='1') 
+            //         return 'black';
+            // }
+            // let lineCounter = 0;
+            // for(let line of inp){
+            //     let lineInputs = splitByPlus(line);
+            //     let rowCounter = 0;
+            //     for(let lineInput of lineInputs){
+            //         ctx.fillStyle = getColor(lineInput);
+            //         for(let i=1; i<=getNumber(lineInput); i++){
+            //             ctx.fillRect(rowCounter*size,size*lineCounter, size, size);
+            //             rowCounter++;
+            //         }
+            //     }
+
+            //     lineCounter++;
+            // }
+
+
+            // Encoding - ASCII
+            // let str = '4C6520666C6167206465206365206368616C6C656E6765206573743A203261633337363438316165353436636436383964356239313237356433323465';
+            // let res = '';
+            // for(let i=0; i<str.length;i++){
+            //     let part = str.substr(i,2);
+            //     res+=String.fromCharCode(parseInt(part,16));
+            //     i++;
+            // }
+            // console.log('encoding ascii: ' + res);
+
+
+
+
+            // Shift cipher
+            // const text = 'L|kЂy+*^*zo‚*Ђkvsno|*kЂom*vo*zk}}*cyvksr ';
+            // let i = 0;
+            // while(i<11){
+            //     let ans= '';
+            //     for(let ch of text){
+            //         ans=ans+String.fromCharCode(ch.charCodeAt()-i);
+            //     }
+            //     console.log(i+") "+ans);
+            //     i++;
+            // }
+
+            async function go(){
+            async function getTeams(year, k) {
+    // write your code here
+    // API endpoint template: https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=<YEAR>&page=<PAGE_NUMBER>
+    let totalPageNumber;
+    let getTotalPageNumber = await fetch(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=1`).then((response)=>response.json()).then((data)=>{totalPageNumber = data.total_pages});
+    let allTeams = [];
+    
+    for(let i=1;  i<=totalPageNumber; i++){
+        let matches = [];
+        let getMatches = await fetch(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=${i}`).then((response)=>response.json()).then((data)=>{matches = data.data});
+        
+        for(const match of matches){
+            allTeams.push(match.team1);
+            allTeams.push(match.team2);
+        }
+    }
+    
+    let result = new Set( allTeams.filter((team)=>{
+        let count = 0;
+        allTeams.forEach((t)=>{
+            if(t===team){
+                count++;
+            }
+        })
+        return count>=k;
+    }))
+    return [...result];
+}
+            // console.log(getTeams(2011, 1));
+            const teams = await getTeams(2015, 13);
+            console.log(teams);
+            for(const team of teams){
+                console.log(team+ " ");
+            }
+    }
+    // go();
+
+    function getFixedCounter(k) {
+  // write your code here
+  const counter = {
+      value : 0,
+      getValue: ()=> this.value,
+      increment: ()=> this.value = this.value + k,
+      decrement: ()=>this.value = this.value -k
+  }
+  return counter;
+}
+
+console.log(getFixedCounter(4));
+        </script>     
     </body>
 </html>

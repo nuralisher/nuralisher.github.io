@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto',arial,sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2em 2em;
+}
+
+.trueAnswers, .selectedAnswers{
+    padding: 1em;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    transition: outline-color linear .2s;
+    width: 75px;
+    text-align: center;
+}
+
+.selectedAnswers:focus, .trueAnswers{
+    outline-color: blue;
+}
+
+.trueAnswers{
+    font-weight: 600;
+}
+
+.calculate, .addq, .adds{
+    padding: .8em 1em;
+    background-color: rgb(0, 183, 255);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    outline: 0;
+    border: 2px solid blue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all linear .2s;
+}
+
+.calculate{
+    background-color: red;
+    border-color: rgb(212, 5, 5);
+}
+
+.addq:hover, .addq:active,
+.adds:hover, .adds:active{
+    background-color: white;
+    color: rgb(0, 183, 255);
+}
+
+.calculate:hover, .calculate:active{
+    background-color: white;
+    color: red;
+}
+
+.stName{
+    width: fit-content;
+    border: 0;
+    border-bottom: 1px;
+}
+
+.student{
+    margin-bottom: 2em;
+}
+
+.header{
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: .8em 0;
+}
+
+.header > *{
+    display: block;
+}
+
+.header > * + *{
+    margin-left: .5em;
+}
+
+.header > input{
+    margin-right: .5em;
+    outline: none;
+    border: 0;
+    font-size: 1.1rem;
+    background-color: transparent;
+}
+
+.header > input:focus{
+    border-bottom: 1px solid;
+}
+
+.stScore{
+    font-weight: bold;
+    color: blue;
+}
+
+#question_item{
+    margin-bottom: 1em;
+}
+
+.student{
+    margin-top: 2em;
+    border-top: 3px dotted;
+    padding-top: 2em;
+}
+
+.student_item > input, #question_item > input{
+    margin: .5em;
+}
+
+.student_item{
+    margin: .3em 0;
+    background-color: whitesmoke;
+    padding: 1em;
+    border-radius: 1em;
+}
