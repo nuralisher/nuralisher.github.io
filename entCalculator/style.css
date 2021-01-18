@@ -19,7 +19,7 @@ body{
     font-size: 1.1rem;
     letter-spacing: 2px;
     transition: outline-color linear .2s;
-    width: 80px;
+    width: 100px;
     text-align: center;
     text-transform: uppercase;
 }
