@@ -8,13 +8,29 @@ window.onload = ()=>{
     const studentsBlock = document.getElementById('students');
     const addQuestion = document.getElementById('addq');
     const questionsBlock = document.getElementById('question_item');
+    const excel = document.getElementById('table');
 
-    let students = [new Student('Alisher'),];
+    let students = [new Student("Alisher", 1)];
     let questionsNumber = 1;
 
     students.forEach((student)=>{
         student.draw();
     })
+
+
+    excel.oninput = (e)=>{
+        let input = e.target.value;
+        let rows = input.split(/\r\n|\r|\n/g);
+
+        for(i in rows){
+            if(i==0){
+                rowExcel(rows[i], 1);
+            }else{
+                addStudentClick();
+                rowExcel(rows[i], parseInt(i)+1);
+            }
+        }
+    }
 
     document.querySelector('#trueAnswers').focus();
 
@@ -41,8 +57,10 @@ window.onload = ()=>{
         })
     }
 
-    addStudent.onclick = ()=>{
-        let newStudent = new Student((students.length+1).toString());
+    addStudent.onclick = addStudentClick;
+    
+    function addStudentClick(){
+        let newStudent = new Student((students.length+1).toString(), students.length+1);
         students.push(newStudent);
         newStudent.draw();
     }
@@ -55,9 +73,9 @@ window.onload = ()=>{
             const id = parseInt(st)+1;
             const selectedAnswersInputs = [...document.querySelectorAll(`.selectedAnswers${id}`)];
             const score = document.querySelector(`.stScore${id}`);
-            let scoreValue = 0;
+            let scoreValue = parseInt(students[st].score);
             for(let i in trueAnswersInputs){
-                scoreValue = scoreValue + calc(trueAnswersInputs[i], selectedAnswersInputs[i]);
+                scoreValue = scoreValue + parseInt(calc(trueAnswersInputs[i], selectedAnswersInputs[i]));
             }
             score.innerHTML = scoreValue;
         }
@@ -108,10 +126,40 @@ window.onload = ()=>{
     }
 
 
+    function rowExcel(genAns, id){
+        let answers = genAns.split("	");
 
-    function Student(name){
+                answers.forEach((ans)=>{
+                    const selectedAnswersInputs = [...document.querySelectorAll(`.selectedAnswers${id}`)];
+                    const name = document.querySelector(`.stName${id}`);
+                    let i =0;
+                    selectedAnswersInputs.forEach((el)=>{
+                        el.value = answers[i];
+                        i++;
+                    });
+
+                    for(i in answers){
+                        if(i==0){
+                            let scoreRow = answers[i];
+                            let scoreValue = `${scoreRow[0]}${scoreRow[1]}`;
+                            students[id-1].score = parseInt(scoreValue);
+                        }else if(i==1){
+                            name.value = answers[i];
+                        }else{
+                            selectedAnswersInputs[i-2].value = answers[i];
+                        }
+                    }
+                })
+    }
+
+    function Student(name, id){
         this.name = name;
         this.score = 0;
+        this.id = id;
+
+        this.setScore = function(score){
+            this.score = score;
+        }
     
         this.changeName = function(newName){
             this.name = newName;
@@ -145,11 +193,21 @@ window.onload = ()=>{
             let span2 = document.createElement('span');
             span1.innerHTML = 'Student name:';
             span2.innerHTML = 'Score:'
+
+            let generalAns = document.createElement('input');
+            generalAns.placeholder = 'excel row';
+            generalAns.className = "genAns";
+
+            generalAns.oninput = (e)=>{
+                let genAns = e.target.value;
+                rowExcel(genAns, this.id);
+            }
     
             header.appendChild(span1);
             header.appendChild(name);
             header.appendChild(span2);
             header.appendChild(score);
+            header.appendChild(generalAns);
     
             block.appendChild(header);
     

@@ -124,3 +124,15 @@ body{
     padding: 1em;
     border-radius: 1em;
 }
+
+.genAns{
+    margin-left: 2em;
+    width: 320px;
+    text-transform: uppercase;
+}
+
+.table{
+    padding: 1em;
+    font-size: 1.1rem;
+    width: 100%;
+}
