@@ -53,6 +53,7 @@ body{
     padding: .8em 1.4em;
     font-size: 1.1rem;
     transition: all linear .1s;
+    border-bottom: 2px solid transparent;
 }
 
 .selected{
