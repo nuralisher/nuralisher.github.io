@@ -22,13 +22,14 @@
         let pr1 = `<b>code:</b> ${event.code}`;
         let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
         let pr3 = `<b>key:</b> ${event.key}`;
-        keyDownResult.innerHTML = `<h1>KeyDown</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/>`
+        let pr4 = `<b>which:</b> ${event.which}`;
+        keyDownResult.innerHTML = `<h1>KeyDown</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/> ${pr4} <br/>`
     }
     input.onkeypress = (event) => {
         let pr1 = `<b>code:</b> ${event.code}`;
         let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
         let pr3 = `<b>key:</b> ${event.key}`;
-        keyPressResult.innerHTML = `<h1>KeyPress</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/>`
+        keyPressResult.innerHTML = `<h1>KeyPress</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/> ${pr4} <br/>`
     }
 </script>
 </body>
