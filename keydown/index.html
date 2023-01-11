@@ -7,18 +7,28 @@
 <body>
 <input type="text" id="input">
 
-<div id="result" style="font-size: 20px">
+<div id="keyDownResult" style="font-size: 20px">
+
+</div>
+<div id="keyPressResult" style="font-size: 20px">
 
 </div>
 
 <script>
     let input = document.getElementById('input');
-    let result = document.getElementById('result');
+    let keyDownResult = document.getElementById('keyDownResult');
+    let keyPressResult = document.getElementById('keyPressResult');
     input.onkeydown = (event) => {
         let pr1 = `<b>code:</b> ${event.code}`;
         let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
         let pr3 = `<b>key:</b> ${event.key}`;
-        result.innerHTML = `${pr1}<br/> ${pr2}<br/> ${pr3}`
+        keyDownResult.innerHTML = `<h1>KeyDown</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/>`
+    }
+    input.onkeypress = (event) => {
+        let pr1 = `<b>code:</b> ${event.code}`;
+        let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
+        let pr3 = `<b>key:</b> ${event.key}`;
+        keyPressResult.innerHTML = `<h1>KeyPress</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/>`
     }
 </script>
 </body>
