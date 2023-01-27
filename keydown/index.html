@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="input">
+<input type="text" id="input" pattern="0-9" inputmode="numeric">
 
 <div id="keyDownResult" style="font-size: 20px">
 
@@ -18,7 +18,7 @@
     let input = document.getElementById('input');
     let keyDownResult = document.getElementById('keyDownResult');
     let keyPressResult = document.getElementById('keyPressResult');
-    input.onkeydown = (event) => {
+    input.onkeyup = (event) => {
         event.preventDefault();
         let pr1 = `<b>code:</b> ${event.code}`;
         let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
