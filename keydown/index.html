@@ -27,11 +27,12 @@
         let pr5 = `<b>target.value:</b> ${event.target.value}`;
         keyDownResult.innerHTML = `<h1>KEY UP</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/> ${pr4} <br/> ${pr5} <br/>`
     }
-    input.addEventListener('beforeinput', (event) => {debugger
-        let pr1 = `<b>code:</b> ${event.code}`;
+    input.addEventListener('beforeinput', (event) => {
+        let pr1 = `<b>data:</b> ${event.data}`;
         let pr2 = `<b>keyCode:</b> ${event.keyCode}`;
         let pr3 = `<b>key:</b> ${event.key}`;
-        keyPressResult.innerHTML = `<h1>Beforeinput</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/> ${pr4} <br/>`
+        keyPressResult.innerHTML = `<h1>Beforeinput</h1> ${pr1}<br/> ${pr2}<br/> ${pr3} <br/>`;
+        debugger
     })
 </script>
 </body>
